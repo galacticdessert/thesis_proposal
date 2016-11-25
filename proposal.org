@@ -1,7 +1,7 @@
-#+LATEX_HEADER: \usepackage[margin=1in]{geometry}
+#+LATEX_HEADER: \usepackage[margin=0.75in]{geometry}
 #+TITLE: Thesis proposal
 #+AUTHOR: Nicola Zanardi
-#+OPTIONS: toc:nil
+#+OPTIONS: toc:nil date:nil class:article
 
 * Introduction
 Internal combustion engines are still nowadays the most widely adopted powertrain for on-road vehicles. However, due to inefficiencies in the energy conversion process, around 60-70% of the fuel energy is wasted in form of heat.
@@ -24,10 +24,9 @@ The first system that will be analyzed is the well known Otto-cycle gasoline eng
 
 This powerplant will constitute the "baseline" scenario for the comparison, due to the forementioned diffusion and universal acceptance as a valid waste heat recovery method.
 
-*** Modeling methodology
+*** Modeling methodology and assumptions
 The powertrain model will be assembled starting from already existing projects developed by OSU students in the previous years, and then adapted for the particular case in study. In particular, the road testing data is coming from a 3.6L V6 gasoline equipped Chrysler minivan, and the engine maps and transmission models have been developed accordingly.
 
-*** Assumptions
 As a waste heat source, only the heat coming from the exhaust gases will be considered, neglecting the heat contained in the coolant. The reasons behind this decisions are: increased recovery complexity, lower exergetic content and the fact that is a more unusual configuration with respect to the one with only exhausts recovery. Being this the baseline scenario, it has been decided to stick to the most common configuration.
 
 *** Expected results
@@ -36,10 +35,9 @@ Being this the baseline case, the results expected should be coherent with the m
 ** Otto-engine with evaporative cooling Organic Rankine bottoming cycle
 The previous system will be  modified as to remove the heat exchanger between the heat source and the cycle working fluid. This way the ORC working fluid will replace the engine coolant, increasing the amount of energy recovered and reducing the heat and the number of components of the system. As a downside, the control system will become more complex, because it will be necessary to control the refrigerant mass flow rate in order to guarantee the required cooling for the engine at all the operating points while not having vapor phase in the engine cooling piping.
 
-*** Modeling methodology
+*** Modeling methodology and assumptions
 The same overall model as the previous case will be used, but it will be modified accordingly to the new cycle configuration. Variable flow rate pumps for the cooling working fluid will be implemented and a control system for assuring the correct cooling of the engine will be introduced.
 
-*** Assumptions
 The fluid entering the engine will be assumed as saturated liquid, while the eventual superheating will happen in a heat exchanger using the heat of the exhaust gases
 
 *** Expected results
@@ -48,8 +46,10 @@ It's expected an increase in efficiency with respect to the baseline case, due t
 ** Split-cycle configuration with waste heat recovery
 A different engine configuration will be considered in this case. The idea is to compare a bottoming cycle with a different and theoretically more efficient engine design, especially suited to be used in hybrid cars and plug-in vehicles.
 
-*** Assumptions
+*** Modeling methodology and assumptions
+A new model will be written for this engine, with methodologies yet to be discussed.
+
 The model will not be a dynamic one, because of the limited time available. It will be optimized for a couple of operating points, representing the use as a range extender for a plug-in hybrid vehicle.
 
-*** Modeling methodology
-A new model will be written for this engine, with methodologies yet to be discussed. 
+*** Expected results
+This engine concept is expected to show efficiencies in the order of 52 - 60 %, then higher than the two combinations considered before. The efficiency could be increased even more by introducing a bottoming cycle.
