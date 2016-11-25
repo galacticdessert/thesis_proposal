@@ -5,7 +5,7 @@
 
 * Introduction
 Internal combustion engines are still nowadays the most widely adopted powertrain for on-road vehicles. However, due to inefficiencies in the energy conversion process, around 60-70% of the fuel energy is wasted in form of heat.
-An energy and exergy analysis performed on traditional ICEs shows that approximately 40% of the fuel energy leaves the engine in the hot exhaust and another 30% is lost as heat. The largest losses are due to combustion irreversibilities and heat loss to the coolant, through the exhaust, and by direct convection and radiation to the environment.
+An energy and exergy analysis performed on traditional ICEs shows that approximately 40% of the fuel energy leaves the engine in the hot exhaust and another 30% is lost as heat. The largest losses are due to combustion irreversibilities and heat loss to the coolant, through the exhaust, and by direct convection and radiation to the environment. catafrattoo!!!!
 
 The best options for achieving significant improvements in efficiency appears to be recovery of waste heat from the exhaust gases and/or other high energy streams by means of bottoming cycle, intra-cycle recovery, turbo-compounding or thermo-electric technologies.
 
