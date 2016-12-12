@@ -1,43 +1,50 @@
 #+LATEX_HEADER: \usepackage[margin=0.75in]{geometry}
-#+TITLE: Thesis proposal
+#+TITLE: \vspace{-2cm}Thesis proposal
 #+AUTHOR: Nicola Zanardi
-#+OPTIONS: toc:nil date:nil
+#+DATE: December 2016
+#+OPTIONS: toc:nil
 #+LaTeX_CLASS: article
 
 
 * Introduction
-Internal combustion engines are still nowadays the most widely adopted powertrain for on-road vehicles. However, due to inefficiencies in the energy conversion process, around 60-70% of the fuel energy is wasted in form of heat: approximately 40% of the fuel energy leaves the engine in the hot exhaust and another 30% is lost as heat. The best options for achieving significant improvements in efficiency appears to be recovery of waste heat from the exhaust gases and/or other high energy streams by means of bottoming cycle, intra-cycle recovery, turbo-compounding or thermo-electric technologies.
+Internal combustion engines are still the most widely adopted powertrain for on-road vehicles. However, due to inefficiencies in the energy conversion process, around 60-70% of the fuel energy is wasted: approximately 40% of the fuel energy leaves the engine in the hot exhaust and another 30% is lost as heat. In order to achieve significant efficiency improvements, recovery of waste heat from exhaust gases and/or other high energy streams may be performed.
 
 * Thesis proposal
-My thesis will be focused on comparing three different technologies that aim at recovering the waste heat produced by the ICE.
+My thesis is focused on comparing three different technologies that aim at recovering waste heat produced by the ICE.
 
-Two different configurations of Organic Rankine bottoming cycle bounded to traditional gasoline Otto-cycle engine will be considered, plus a split-cycle engine with isothermal compression and integrated waste heat recovery. The comparison will be made via Matlab/Simulink models of the different configurations.
+Different configurations will be compared, in particular two different Organic Rankine bottoming cycles paired with an Otto-cycle engine, and a split-cycle engine with isothermal compression and integrated waste heat recovery. The comparison will be carried out via Matlab/Simulink simulations.
 
-The powertrain model will take as input a velocity profile (NEDC, WLTC, or others) for which measured torque and angular speed data at the wheel is available. Then a transmission will be implemented, in order to calculate torque and angular speed at the engine. Furthermore, via the modeling of the engine maps it will be possible to calculate the mass flow rate, the temperature and the heat flux of both the exhaust gases and of the coolant. Once the waste heat data will be available, then the bottoming cycle model will be implemented if required in the considered configuration. Taking as input the output of the first model, the recovered energy and produced power will be calculated, and then the impact of the global efficiency of the engine.
+The powertrain model that will be used is backward-looking, this means that the torque demand is computed from the velocity speed profile. The model will take as input the velocity profile of a driving cycle for which experimental data is available, then the torque and angular speed at the engine will be calculated through a simulated transmission. Furthermore, engine maps will be extracted from experimental data along with characteristics and performances of the heat exchangers, making possible the calculation of flow rate, temperature and heat flux for both the exhaust gases and the coolant. Once the waste heat data will be available, the bottoming cycle model will be introduced. Starting from the output of the powertrain model, the recovered energy and produced power will be calculated.
 
-** Otto-engine with Organic Rankine bottoming cycle
-The first system that will be analyzed is the well known Otto-cycle gasoline engine paired with a bottoming Organic Rakine cycle. This system has been studied and tested extensively since the '70s, and there are also commercial available products, mainly in the heavy-duty range, that adopt it. This powerplant will constitute the "baseline" scenario for the comparison, due to the forementioned diffusion and universal acceptance as a valid waste heat recovery method.
+** IC-engine with Organic Rankine bottoming cycle
+The first system that will be studied is the well known IC-cycle engine paired with a bottoming Organic Rakine cycle. This system has been studied and tested extensively since the '70s, and there are commercial available products in the heavy-duty market that adopt it. The aforementioned powertrain model has to be built to perform the desired analysis on this configuration, and will constitute the starting point for the more following cases.
 
-*** Modeling methodology and assumptions
-The powertrain model will be assembled starting from already existing projects developed by OSU students in previous years, and then adapted for the particular case considered. In particular, the road testing data comes from a 3.6L V6 gasoline equipped Chrysler minivan, and the engine maps and transmission models have been developed accordingly. As a waste heat source, only the heat coming from the exhaust gases will be considered, neglecting the heat contained in the coolant. The reasons behind this decisions are: increased recovery complexity, lower exergetic content and the fact that is a more unusual configuration with respect to the one with only exhausts recovery. Being this the baseline scenario, it has been decided to stick to the most common configuration.
+This powertrain will constitute the "baseline" scenario for the comparison, due to the already discussed diffusion and universal acceptance as a valid waste heat recovery method.
 
-*** Expected results
-Being this the baseline case, the results expected should be coherent with the majority of the studies that can be found in literature, that is an expected increase in the global engine efficiency around 6 - 10 %.
+- *Modeling methodology and assumptions*
+The powertrain model will be built starting from previous projects which focused on similar topics, and will be adapted for the particular case considered. The gasoline engine that will be modeled is a 3.6L V6, for which recorded data is available. As a waste heat source, only the heat coming from the exhaust gases will be used for recuperation, neglecting the heat contained in the coolant. The coolant heat recovery shows additional complexities due to lower exergetic content. Being this the baseline scenario, it has been decided to stick to the most common configuration, that is without the coolant heat recovery.
 
-** Otto-engine with evaporative cooling Organic Rankine bottoming cycle
-The previous system will be  modified as to remove the heat exchanger between the heat source and the cycle working fluid. This way the ORC working fluid will replace the engine coolant, increasing the amount of energy recovered and reducing the heat and the number of components of the system. As a downside, the control system will become more complex, because it will be necessary to control the refrigerant mass flow rate in order to guarantee the required cooling for the engine at all the operating points while not having vapor phase in the engine cooling piping.
+- *Expected results*
+The results expected should be coherent with the majority of the studies that can be found in literature, that is an expected increase in the global engine efficiency around 3-7% on average drive-cycle.
 
-*** Modeling methodology and assumptions
-The same overall model as the previous case will be used, but it will be modified accordingly to the new cycle configuration. Variable flow rate pumps for the cooling working fluid will be implemented and a control system for assuring the correct cooling of the engine will be introduced. The fluid entering the engine will be assumed as saturated liquid, while the eventual superheating will happen in a heat exchanger using the heat of the exhaust gases
+** IC-engine with evaporative cooling Organic Rankine bottoming cycle
+The previous system will be  modified in order to remove the heat exchanger between the heat source and the cycle working fluid. This way the ORC working fluid will replace the engine coolant, increasing the amount of energy recovered and reducing the heat and the number of components of the system. This setup is different from the simple coolant heat recovery, as it allows to have access to a higher temperature heat source, while replacing the regular engine coolant.
 
-*** Expected results
-It's expected an increase in efficiency with respect to the baseline case, due to an increased heat exchange coefficient and better matching of the system with the engine characteristics. More heat is expected to be recovered, with consequent increase of the overall produced power.
+As a downside, the control system will become more complex, because it is necessary to control the refrigerant mass flow rate to guarantee the required cooling for the engine at all the operating points, while not having vapor phase in the engine cooling piping. Furthermore, modeling heat transfer during nucleate boiling is considered a major challenge for this task.
+
+- *Modeling methodology and assumptions*
+The model used for the first case will be used as starting point, but it will be modified accordingly to the new configuration. Variable flow rate pumps will be implemented, and a control system for assuring the correct cooling of the engine will be necessary. The fluid entering the engine will be assumed as saturated liquid, while the superheating will be performed in a heat exchanger using the heat from the exhaust gases.
+
+- *Expected results*
+It's expected an increase in efficiency with respect to the baseline case, due to the increased heat exchange coefficient and better matching of the bottoming cycle with the engine. More heat is expected to be recovered, with consequent increase of the overall produced power.
 
 ** Split-cycle configuration with waste heat recovery
-A different engine configuration will be considered in this case. The idea is to compare a bottoming cycle with a different and theoretically more efficient engine design, especially suited to be used in hybrid cars and plug-in vehicles.
+A different engine configuration will be considered in this case. The concept is based on a split-cycle engine that divides the four strokes in two different chambers, allowing an increased energy density and efficiency with respect to conventional Otto thermodynamic cycle.
 
-*** Modeling methodology and assumptions
-A new model will be written for this engine, with methodologies yet to be discussed. The model will not be a dynamic one, because of the limited time available. It will be optimized for a couple of operating points, representing the use as a range extender for a plug-in hybrid vehicle.
+The idea is to compare a bottoming cycle with a different and theoretically more efficient engine design, especially suited to be used in hybrid cars and plug-in vehicles.
 
-*** Expected results
-This engine concept is expected to show efficiencies in the order of 52 - 60 %, then higher than the two combinations considered before. The efficiency could be increased even more by introducing a bottoming cycle.
+- *Modeling methodology and assumptions*
+A new model will be written for this engine, and information are yet to be discussed. The model will not be a dynamic one, because of the limited time available. It will be optimized for a couple of operating points, representing the use as a range extender for a plug-in hybrid vehicle.
+
+- *Expected results*
+This engine concept is expected to show efficiencies in the order of 52 - 60 % (according to "A comparative study between a Rankine cycle and a novel intra-cycle based waste heat recovery concepts applied to an internal combustion engine" - Morgan, Dong, Panesar, Heikal and "A thermodynamic analysis ofa novel high efficiency reciprocating internal combustion engine—the isoengine"  - Coney, Linnemann, Abdallah) then higher than the two combinations considered before. Introducing a bottoming cycle in this engine concept will be explored to evaluate whether further improvements are possible.
